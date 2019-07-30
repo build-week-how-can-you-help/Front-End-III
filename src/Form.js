@@ -25,7 +25,7 @@ const buttonStyle1 = {
 const buttonStyle2 = {
   position: 'absolute',
   top: '0%',
-  left: '80%'
+  left: '95%'
 
 }
 
@@ -49,14 +49,20 @@ const Form = (props) => {
           <form onSubmit={handleSubmit} className='back-img'
  >
 <Bir  style={(props.kind) ? {"top" : "0%"} : {"top" : "30%"} }>            
-          <div className="field">
-                <label style={(props.kind) ? labelStyle2 : labelStyle1 } className="label" >What kind of Non-Profit are You Looking For?</label>
+<div className="field">
+          <label style={(props.kind) ? labelStyle2 : labelStyle1 } className="label" >What kind of Non-Profit are You Looking For?</label>
                 <div className="control">
                 <Input placeholder='What are you looking for?' style={{"marginLeft" : "10%"}} className="input" size='100' type="text" name="kind" onChange={handleChange} value={values.kind} required />
                 </div>
               </div>
+              <div className="field">
+          <label style={(props.kind) ? labelStyle2 : labelStyle1 } className="label" >Zip Code</label>
+                <div className="control">
+                <Input placeholder='Enter zip code' style={{"marginLeft" : "10%"}} className="input" size='5' type="text" name="zip" onChange={handleChange} value={values.zip} required />
+                </div>
+              </div>
               <Button style={(props.kind) ? buttonStyle2 : buttonStyle1 } type="submit" className="button is-block is-info is-fullwidth">{(props.kind) ? 'New Search' : 'Find Non-Profit'}</Button>
-</Bir>x
+</Bir>
 
             </form>
 <div className='myClass'>            
@@ -86,7 +92,7 @@ const Form = (props) => {
             <h3>About Us</h3>
             <Column>
             <div></div>
-            <Link className='movie-card' to={`/form/`} replace>Home</Link>
+           <button><Link className='movie-card' to={`/form/`} replace>Home</Link></button>
              <button>About Us</button>
             <button>Vounteering</button>
             <button>Safety</button>
