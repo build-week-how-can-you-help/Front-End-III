@@ -1,15 +1,38 @@
 import React from 'react';
 import useForm from "./useForm";
+import { Link } from 'react-router-dom'
+
 import {Column,GridView,Bir,Input,Button} from "./myStyle"
-import hdImage from "./pexelkidsflowersblured.png";
+import hdImage from "./bg.png";
 import './Form.css';
+
 const imgStyle = {
   width: '50%',
-  minWidth: '380px'
+  minWidth: '380px',
+  position: 'absolute',
+  top: '0%',
+  left: '25%'
 }
+const labelStyle1 = {
+  marginLeft: '10%',
+}
+const labelStyle2 = {
+  display: 'none'
+}
+const buttonStyle1 = {
+  position: 'relative'
+}
+const buttonStyle2 = {
+  position: 'absolute',
+  top: '0%',
+  left: '80%'
+
+}
+
 const Form = (props) => {
     const { values, handleChange, handleSubmit } = useForm(getData);
-  
+    props.setKind(props.newKind)
+    props.setZip(props.newZip)
     function getData(kind) {
     props.setKind(kind.trim())
     
@@ -17,7 +40,7 @@ const Form = (props) => {
     return (
       <div >
         <img alt='' src={hdImage} style={(props.kind) ? {"display" : "none"} : imgStyle }/>
-<div>Entered keys: {props.kind !== '' ? '<' + props.kind + '>': 'none'}</div>
+{/* <div>Entered keys: {props.kind !== '' ? '<' + props.kind + '>': 'none'}</div> */}
     <GridView className="section is-fullheight">
       <div className="container">
         <div className="column is-4 is-offset-4">
@@ -25,15 +48,15 @@ const Form = (props) => {
   
           <form onSubmit={handleSubmit} className='back-img'
  >
-<Bir>            
+<Bir  style={(props.kind) ? {"top" : "0%"} : {"top" : "30%"} }>            
           <div className="field">
-                <label  style={{"marginLeft" : "10%"}}className="label" >What kind of Non-Profit are You Looking For?</label>
+                <label style={(props.kind) ? labelStyle2 : labelStyle1 } className="label" >What kind of Non-Profit are You Looking For?</label>
                 <div className="control">
-                <Input  style={{"marginLeft" : "10%"}} className="input" size='100' type="text" name="kind" onChange={handleChange} value={values.kind} required />
+                <Input placeholder='What are you looking for?' style={{"marginLeft" : "10%"}} className="input" size='100' type="text" name="kind" onChange={handleChange} value={values.kind} required />
                 </div>
               </div>
-              <Button  type="submit" className="button is-block is-info is-fullwidth">Find Non-Profit</Button>
-</Bir>
+              <Button style={(props.kind) ? buttonStyle2 : buttonStyle1 } type="submit" className="button is-block is-info is-fullwidth">{(props.kind) ? 'New Search' : 'Find Non-Profit'}</Button>
+</Bir>x
 
             </form>
 <div className='myClass'>            
@@ -63,7 +86,8 @@ const Form = (props) => {
             <h3>About Us</h3>
             <Column>
             <div></div>
-            <button>About Us</button>
+            <Link className='movie-card' to={`/form/`} replace>Home</Link>
+             <button>About Us</button>
             <button>Vounteering</button>
             <button>Safety</button>
             <button>Partners</button>
