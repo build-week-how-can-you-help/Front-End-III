@@ -4,9 +4,11 @@
   "private": true,
   "dependencies": {
     "react": "^16.8.6",
+    "react-background-image": "^1.2.0",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1",
-    "styled-components": "^4.3.2"
+    "styled-components": "^4.3.2",
+    "styled-components-media-query": "^1.0.15"
   },
   "scripts": {
     "start": "react-scripts start",

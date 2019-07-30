@@ -1,12 +1,15 @@
-import React from 'react';
-import logo from './logo.svg';
+import React,{useState} from 'react';
+import Form from './Form'
+// import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  return (
+  const [kind, setKind] = useState('')
+
+    return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        {/* <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -17,10 +20,15 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn React
-        </a>
+        </a> */}
       </header>
+      <div className="App-header">
+    <Form kind={kind} setKind={setKind} />
+
+  </div>
     </div>
-  );
+
+);
 }
 
 export default App;

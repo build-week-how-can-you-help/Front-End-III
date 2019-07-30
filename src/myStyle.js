@@ -1,4 +1,5 @@
-import styled from 'styled-components'
+import  styled from 'styled-components'
+
 export const Nav = styled.nav`
 width: 10%;
 display: flex;
@@ -16,7 +17,8 @@ font-size: 20px;
   border: 2px solid white;
   border-radius: 10px;
   display: block;
-
+  position: relative;
+  left: 40%;
   `
   export const Li = styled.li`
   margin-left: 10px;
@@ -82,7 +84,10 @@ export const Ahref = styled.a`
     margin-left: 40%;
     margin-right: 40%;
     `;
-  
+
+    export const FormTag = styled.form`
+    background-image: url(${props => props.img});
+`;
     export const Bir = styled.div`
     position: absolute;
     top: 30%;
@@ -93,14 +98,31 @@ export const Ahref = styled.a`
     text-shadow: 1px 1px grey;
         min-width: 200px;  
     justifyContent: center;
-    margin-left: 40%;
+    margin-left: 20%;
     margin-right: 40%;
       `;
     export const Input = styled.input`
-      width: 50:
+      width: 40%;
+      min-width: 200px; 
     `
-  
-      export const Pro = styled.div`
+    export const Span1 = styled.span`
+    position: absolute;
+    top: 70%;
+    left: 25%;
+    `
+
+    export const Span2 = styled.span`
+    position: absolute;
+    top: 70%;
+    left: 40%;
+    `
+
+    export const Span3 = styled.span`
+    position: absolute;
+    top: 70%;
+    left: 55%;
+    `
+export const Pro = styled.div`
       font-family: 'Indie Flower', cursive;
       border-left: 5px solid brown;
       border-right: 5px solid brown;
@@ -111,13 +133,19 @@ export const Ahref = styled.a`
       margin-right: 40%;
         `;
       
-      export const Style = styled.div`
+        export const Style = styled.div`
 
-display: flex;
-marginTop: 10px;
+        display: flex;
+        marginTop: 10px;
+        
+        `;
+        export const Column = styled.div`
 
-`;
-
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        `;
+                
 export const H1Style = styled.h1`
 font-family: 'Roboto', sans-serif;
 border-top: 2.5px solid black;
