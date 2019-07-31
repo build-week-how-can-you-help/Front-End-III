@@ -26,7 +26,21 @@
             top: 70%;
             left: 55%;
             }
-            @media only screen and (max-width: 1600px) {
+            .bottomStyle {
+              text-align: left;
+              margin-top: 20%;
+              margin-left: 150%;
+              width: 50%;
+              background-color: white;
+            }
+            .bottomStyle2 {
+              text-align: left;
+              margin-top: 0%;
+              margin-left: 150%;
+              width: 50%;
+              background-color: white;
+            }
+          @media only screen and (max-width: 1600px) {
                 .span1 {
                     top: 60%;
                     left: 25%;
@@ -44,4 +58,13 @@
                     left: 25%;
                                 }
               } 
-                      
+              @media only screen and (max-width: 1600px) {
+                .bottomStyle {
+                margin-left: 10%;
+                                }
+                              }
+                                @media only screen and (max-width: 1600px) {
+                                  .bottomStyle2 {
+                                  margin-left: 10%;
+                                                  }
+                                                }

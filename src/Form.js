@@ -56,9 +56,9 @@ const Form = (props) => {
         <div className="column is-4 is-offset-4">
           <div className="box">
   
-          <form onSubmit={handleSubmit} className='back-img' id='how'
+          <form onSubmit={handleSubmit} id='how'
  >
-<Bir  style={(props.kind) ? {"top" : "0%"} : {"top" : "v0%"} }>            
+<Bir  style={(props.kind) ? {"top" : "0%"} : {"top" : "0%"} }>            
 <div className="field">
           <label style={(props.kind) ? labelStyle2 : labelStyle1 } className="label" >What kind of Non-Profit are You Looking For?</label>
                 <div className="control">
@@ -75,9 +75,9 @@ const Form = (props) => {
                 </div>
               </div>
               <Button style={(props.kind) ? buttonStyle2 : buttonStyle1 } type="submit" className="button is-block is-info is-fullwidth">{(props.kind) ? 'New Search' : 'Find Non-Profit'}</Button>
-              <Show kind={props.kind} vData={props.vData} ></Show>
 
 </Bir>
+<Show kind={props.kind} vData={props.vData} volNext={props.volNext} setNext={props.setNext} ></Show>
             </form>
           </div>
         </div>

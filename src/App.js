@@ -21,6 +21,7 @@ function App() {
   const [volData9, setData9] = useState('')
 
   const [volData, setData] = useState('')
+  const [volNext, setNext] = useState(0)
 
   const [kind, setKind] = useState('')
   const [zip, setZip] = useState('')
@@ -56,12 +57,13 @@ function App() {
              )
             }, []);
             console.log('vol data1 is', volData1)
-let vData = [{name: '', zip: ''}]
+            let vData1 = [{name: '', zip: '', contact: '', info: ''}]
+            let vData = [{name: '', zip: '', contact: '', info: ''}]
 
 
 for (let i=0;i<volData.length;i++)
 {
-  vData[i] = {name: volData[i]['name'], zip: volData[i]['birth_year']}
+  vData[i] = {name: volData[i]['name'], zip: volData[i]['birth_year'], contact: volData[i]['hair_color'], info: volData[i]['eye_color']}
 }
 
 console.log('vdata is',vData)
@@ -87,7 +89,7 @@ console.log('data length is',data.length)
     <div className="App">
             <Route
   path='/form'
-  render={(props) => <Form {...props}  kind={kind} setKind={setKind} zip={zip} setZip={setZip} newKind='' newZip='' vData={vData} isAuthed={true} />}
+  render={(props) => <Form {...props}  kind={kind} setKind={setKind} zip={zip} setZip={setZip} newKind='' newZip='' vData={vData} volNext={volNext} setNext={setNext} isAuthed={true} />}
 />
 
       <header className="App-header">
@@ -105,46 +107,8 @@ console.log('data length is',data.length)
         </a> */}
       </header>
       <div className="App-header">
-    <Form kind={kind} setKind={setKind} zip={zip} setZip={setZip} newKind={kind} newZip={zip} vData={vData}/>
-///////////////
-<div className='myClass'>            
- <span className='span1'>
-            <h3>Who We Are</h3>
-<Column>
-            <div>Neque porro quisquam est qui</div>
-            <div>dolorem ipsum quia dolor sit</div>
-            <div> amet, consectetur, adipisci velit</div>
-            <div>Neque porro quisquam est qui</div>
-            <div>dolorem ipsum quia dolor sit</div>
-            <div> amet, consectetur, adipisci velit</div>
-            <div> amet, consectetur, adipisci velit</div>
-            </Column>            
-</span>            
-<span className='span2'>
-             <h3>Contact</h3>
-            <Column>
-            <div>2222 Infinity Loop</div>
-            <div>Blay blah, VA 99999-0000</div>
-            <br></br>
-            <div>contact@blah.com</div>
-            </Column>
-</span>            
-<span className='span3'>
- 
-            <h3>About Us</h3>
-            <Column>
-            <div></div>
-           <button><Link className='movie-card' to={`/form/`} replace>Home</Link></button>
-             <button>About Us</button>
-            <button>Vounteering</button>
-            <button>Safety</button>
-            <button>Partners</button>
-            <button>Login</button>
-            </Column>
-</span> 
-</div>           
+    <Form kind={kind} setKind={setKind} zip={zip} setZip={setZip} newKind={kind} newZip={zip} vData={vData1} volNext={volNext} setNext={setNext} />
 
-///////////////  
   </div>
     </div>
 
