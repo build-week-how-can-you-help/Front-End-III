@@ -34,13 +34,13 @@
               } 
               @media only screen and (max-width: 1600px) {
                 .span2 {
-                    top: 80%;
+                    top: 84%;
                     left: 25%;
                                 }
               } 
                 @media only screen and (max-width: 800px) {
                 .span3 {
-                    top: 95%;
+                    top: 100%;
                     left: 25%;
                                 }
               }            
