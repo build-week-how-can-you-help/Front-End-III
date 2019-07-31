@@ -16,6 +16,8 @@ function App() {
   const [volData8, setData8] = useState('')
   const [volData9, setData9] = useState('')
 
+  const [volData, setData] = useState('')
+
   const [kind, setKind] = useState('')
   const [zip, setZip] = useState('')
   const ul = {
@@ -40,6 +42,8 @@ function App() {
         setData7(data7.data.results) 
         setData8(data8.data.results) 
         setData9(data9.data.results) 
+        setData(data1.data.results) 
+        console.log('vol data is', volData1)
      }
   ))
     .catch (data => { 
@@ -47,10 +51,20 @@ function App() {
             }
              )
             }, []);
-let darr = [volData1,volData2,volData3,volData4,volData5,volData6,volData7,volData8,volData9]
+            console.log('vol data1 is', volData1)
+let vData = [{name: '', zip: ''}]
+
+for (let i=0;i<volData.length;i++)
+{
+  vData[i] = {name: volData[i]['name'], zip: volData[i]['birth_year']}
+}
+console.log('vdata is',vData)
+
+            let darr = [volData1,volData2,volData3,volData4,volData5,volData6,volData7,volData8,volData9]
             let data=[];
             let n=0
-for (let j=0;j<darr.length;j++)            
+
+            for (let j=0;j<darr.length;j++)            
 {
   for (let i=0;i<darr[j].length;i++)
 {
@@ -62,6 +76,7 @@ for (let j=0;j<darr.length;j++)
   n=n+1
 }
 }
+console.log('data length is',data.length)
     return (
     <div className="App">
             <Route
