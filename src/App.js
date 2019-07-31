@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react"
 import axios from 'axios'
 import Form from './Form'
+import {Column} from "./myStyle"
 import { Route } from 'react-router-dom';
+import { Link } from 'react-router-dom'
+// import Select from 'react-select';
+
 // import logo from './logo.svg';
 import './App.css';
 
@@ -54,10 +58,12 @@ function App() {
             console.log('vol data1 is', volData1)
 let vData = [{name: '', zip: ''}]
 
+
 for (let i=0;i<volData.length;i++)
 {
   vData[i] = {name: volData[i]['name'], zip: volData[i]['birth_year']}
 }
+
 console.log('vdata is',vData)
 
             let darr = [volData1,volData2,volData3,volData4,volData5,volData6,volData7,volData8,volData9]
@@ -81,7 +87,7 @@ console.log('data length is',data.length)
     <div className="App">
             <Route
   path='/form'
-  render={(props) => <Form {...props}  kind={kind} setKind={setKind} zip={zip} setZip={setZip} newKind='' newZip='' isAuthed={true} />}
+  render={(props) => <Form {...props}  kind={kind} setKind={setKind} zip={zip} setZip={setZip} newKind='' newZip='' vData={vData} isAuthed={true} />}
 />
 
       <header className="App-header">
@@ -99,47 +105,46 @@ console.log('data length is',data.length)
         </a> */}
       </header>
       <div className="App-header">
-    <Form kind={kind} setKind={setKind} zip={zip} setZip={setZip} newKind={kind} newZip={zip}/>
-    <ol start='0' style={ul}>
-      {[1,2,3].map(item => (
-            <li key={item} className="movie-star">
-              {item}
-            </li>
-          ))} 
-</ol>
-{/* <br></br> */}
-<ul style={ul}>
-{[1,2,3].map(item => (
-            <li key={item} className="movie-star">
-              {item}
-            </li>
-          ))} 
-</ul>
-{/* <br></br> */}
+    <Form kind={kind} setKind={setKind} zip={zip} setZip={setZip} newKind={kind} newZip={zip} vData={vData}/>
+///////////////
+<div className='myClass'>            
+ <span className='span1'>
+            <h3>Who We Are</h3>
+<Column>
+            <div>Neque porro quisquam est qui</div>
+            <div>dolorem ipsum quia dolor sit</div>
+            <div> amet, consectetur, adipisci velit</div>
+            <div>Neque porro quisquam est qui</div>
+            <div>dolorem ipsum quia dolor sit</div>
+            <div> amet, consectetur, adipisci velit</div>
+            <div> amet, consectetur, adipisci velit</div>
+            </Column>            
+</span>            
+<span className='span2'>
+             <h3>Contact</h3>
+            <Column>
+            <div>2222 Infinity Loop</div>
+            <div>Blay blah, VA 99999-0000</div>
+            <br></br>
+            <div>contact@blah.com</div>
+            </Column>
+</span>            
+<span className='span3'>
+ 
+            <h3>About Us</h3>
+            <Column>
+            <div></div>
+           <button><Link className='movie-card' to={`/form/`} replace>Home</Link></button>
+             <button>About Us</button>
+            <button>Vounteering</button>
+            <button>Safety</button>
+            <button>Partners</button>
+            <button>Login</button>
+            </Column>
+</span> 
+</div>           
 
-<ul style={ul}>
-{[1,2,3].map(item => (
-            <li key={item} className="movie-star">
-              {item}
-            </li>
-          ))} 
-</ul>
-
-<ul style={ul}>
-{[1,2,3].map((item,ix) => (
-            <li key={ix} className="movie-star">
-              {ix}
-            </li>
-          ))} 
-</ul>
-
-<ul style={ul}>
-{[1,2,3].map(item => (
-            <li key={'<-click toedit'} className="movie-star">
-              {'<--click id number to edit team member information'}
-            </li>
-          ))} 
-</ul>
+///////////////  
   </div>
     </div>
 

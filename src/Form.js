@@ -1,24 +1,14 @@
 import React from 'react';
 import useForm from "./useForm";
-import { Link } from 'react-router-dom'
-import Select from 'react-select';
-import {Column,GridView,Bir,Input,Button} from "./myStyle"
+import {GridView,Bir,Input,Button} from "./myStyle"
 import hdImage from "./bg.png";
+import Show from "./Show";
 import './Form.css';
 
 
 // const techCompanies = [
 //   "Apple", "Facebook","Netflix", "Tesla","Amazon","Alphabet"
 // ];
-
-const techCompanies = [
-  { name: "Apple", label: "Apple", value: "Apple" },
-  { name: "Facebook", value: 2 },
-  { name: "Netflix", value: 3 },
-  { name: "Tesla", value: 4 },
-  { name: "Amazon", value: 5 },
-  { name: "Alphabet", value: 6 },
-];
 
 const inputStyle = {
 width: '40%',
@@ -66,7 +56,7 @@ const Form = (props) => {
         <div className="column is-4 is-offset-4">
           <div className="box">
   
-          <form onSubmit={handleSubmit} className='back-img' id='language'
+          <form onSubmit={handleSubmit} className='back-img' id='how'
  >
 <Bir  style={(props.kind) ? {"top" : "0%"} : {"top" : "v0%"} }>            
 <div className="field">
@@ -85,50 +75,10 @@ const Form = (props) => {
                 </div>
               </div>
               <Button style={(props.kind) ? buttonStyle2 : buttonStyle1 } type="submit" className="button is-block is-info is-fullwidth">{(props.kind) ? 'New Search' : 'Find Non-Profit'}</Button>
-</Bir>
+              <Show kind={props.kind} vData={props.vData} ></Show>
 
+</Bir>
             </form>
-            <select name="expertise" form="language">
-  <option value="12345">12345</option>
-  <option value="54321">54321</option>
-  <option value="98765">98765</option>
-</select>
-<div className='myClass'>            
- <span className='span1'>
-            <h3>Who We Are</h3>
-<Column>
-            <div>Neque porro quisquam est qui</div>
-            <div>dolorem ipsum quia dolor sit</div>
-            <div> amet, consectetur, adipisci velit</div>
-            <div>Neque porro quisquam est qui</div>
-            <div>dolorem ipsum quia dolor sit</div>
-            <div> amet, consectetur, adipisci velit</div>
-            <div> amet, consectetur, adipisci velit</div>
-            </Column>            
-</span>            
-<span className='span2'>
-             <h3>Contact</h3>
-            <Column>
-            <div>2222 Infinity Loop</div>
-            <div>Blay blah, VA 99999-0000</div>
-            <br></br>
-            <div>contact@blah.com</div>
-            </Column>
-</span>            
-<span className='span3'>
- 
-            <h3>About Us</h3>
-            <Column>
-            <div></div>
-           <button><Link className='movie-card' to={`/form/`} replace>Home</Link></button>
-             <button>About Us</button>
-            <button>Vounteering</button>
-            <button>Safety</button>
-            <button>Partners</button>
-            <button>Login</button>
-            </Column>
-</span> 
-</div>           
           </div>
         </div>
       </div>
