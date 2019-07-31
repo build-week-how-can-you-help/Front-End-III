@@ -8,7 +8,7 @@ import './Form.css';
 
 const imgStyle = {
   width: '50%',
-  minWidth: '380px',
+  minWidth: '200px',
   position: 'absolute',
   top: '0%',
   left: '25%'
@@ -48,7 +48,7 @@ const Form = (props) => {
   
           <form onSubmit={handleSubmit} className='back-img'
  >
-<Bir  style={(props.kind) ? {"top" : "0%"} : {"top" : "30%"} }>            
+<Bir  style={(props.kind) ? {"top" : "0%"} : {"top" : "v0%"} }>            
 <div className="field">
           <label style={(props.kind) ? labelStyle2 : labelStyle1 } className="label" >What kind of Non-Profit are You Looking For?</label>
                 <div className="control">

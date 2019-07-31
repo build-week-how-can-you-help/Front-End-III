@@ -90,7 +90,7 @@ export const Ahref = styled.a`
 `;
     export const Bir = styled.div`
     position: absolute;
-    top: 30%;
+    top: 0%;
     font-family: 'Indie Flower';
     font-size: 32px;
     width: 50%;
