@@ -101,7 +101,11 @@ export const Ahref = styled.a`
     margin-left: 20%;
     margin-right: 40%;
       `;
-    export const Input = styled.input`
+      export const Input = styled.input`
+      width: 40%;
+      min-width: 200px; 
+    `
+    export const Select = styled.input`
       width: 40%;
       min-width: 200px; 
     `

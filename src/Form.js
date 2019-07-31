@@ -1,10 +1,30 @@
 import React from 'react';
 import useForm from "./useForm";
 import { Link } from 'react-router-dom'
-
+import Select from 'react-select';
 import {Column,GridView,Bir,Input,Button} from "./myStyle"
 import hdImage from "./bg.png";
 import './Form.css';
+
+
+// const techCompanies = [
+//   "Apple", "Facebook","Netflix", "Tesla","Amazon","Alphabet"
+// ];
+
+const techCompanies = [
+  { name: "Apple", label: "Apple", value: "Apple" },
+  { name: "Facebook", value: 2 },
+  { name: "Netflix", value: 3 },
+  { name: "Tesla", value: 4 },
+  { name: "Amazon", value: 5 },
+  { name: "Alphabet", value: 6 },
+];
+
+const inputStyle = {
+width: '40%',
+marginLeft: '10%',
+minWidth: '200px', 
+}
 
 const imgStyle = {
   width: '50%',
@@ -46,25 +66,33 @@ const Form = (props) => {
         <div className="column is-4 is-offset-4">
           <div className="box">
   
-          <form onSubmit={handleSubmit} className='back-img'
+          <form onSubmit={handleSubmit} className='back-img' id='language'
  >
 <Bir  style={(props.kind) ? {"top" : "0%"} : {"top" : "v0%"} }>            
 <div className="field">
           <label style={(props.kind) ? labelStyle2 : labelStyle1 } className="label" >What kind of Non-Profit are You Looking For?</label>
                 <div className="control">
-                <Input placeholder='What are you looking for?' style={{"marginLeft" : "10%"}} className="input" size='100' type="text" name="kind" onChange={handleChange} value={values.kind} required />
+                <Input list="cityname" placeholder='What are you looking for?' style={{"marginLeft" : "10%"}} className="input" size='100' type="text" name="kind" onChange={handleChange} value={values.kind} required />
+                {/* <Select options={ techCompanies } /> */}
+
                 </div>
               </div>
               <div className="field">
           <label style={(props.kind) ? labelStyle2 : labelStyle1 } className="label" >Zip Code</label>
                 <div className="control">
-                <Input placeholder='Enter zip code' style={{"marginLeft" : "10%"}} className="input" size='5' type="text" name="zip" onChange={handleChange} value={values.zip} required />
+                <Input style={inputStyle} placeholder='Enter zip code' style={{"marginLeft" : "10%"}} className="input" size='5' type="number" min='20588' max='21930' name="zip" onChange={handleChange} value={values.zip} required />
+                {/* <Select options={ techCompanies } /> */}
                 </div>
               </div>
               <Button style={(props.kind) ? buttonStyle2 : buttonStyle1 } type="submit" className="button is-block is-info is-fullwidth">{(props.kind) ? 'New Search' : 'Find Non-Profit'}</Button>
 </Bir>
 
             </form>
+            <select name="expertise" form="language">
+  <option value="12345">12345</option>
+  <option value="54321">54321</option>
+  <option value="98765">98765</option>
+</select>
 <div className='myClass'>            
  <span className='span1'>
             <h3>Who We Are</h3>
