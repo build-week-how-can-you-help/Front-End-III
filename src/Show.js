@@ -83,7 +83,7 @@ for (let i=0;i<props.vData.length;i++)
       {  return (
 <div>
 <Column className={ix===0 ? 'bottomStyle' : 'bottomStyle2'} >
-        <div className={rowStyle1}> {arr[ix]['name']}</div>
+        <div style={{color: 'dodgerblue'}} className={rowStyle1}> {arr[ix]['name']}</div>
         <div className={rowStyle2}>{arr[ix]['address']}</div>
         <div className={rowStyle3}> {arr[ix]['description']}</div>
         </Column>
