@@ -7,10 +7,11 @@ const useForm = (callback) => {
   const handleSubmit = (event) => {
     if (event) event.preventDefault();
 
-      callback(values.kind);
+      callback(values);
   };
 
   const handleChange = (event) => {
+console.log('event is',event)
     event.persist();
     setValues(values => ({ ...values, [event.target.name]: event.target.value }));
   };
@@ -21,4 +22,5 @@ const useForm = (callback) => {
     values,
   }
 };
+
 export default useForm;

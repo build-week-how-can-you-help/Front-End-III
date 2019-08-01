@@ -1,14 +1,23 @@
 import React from 'react';
 import useForm from "./useForm";
-import { Link } from 'react-router-dom'
-
-import {Column,GridView,Bir,Input,Button} from "./myStyle"
+import {GridView,Bir,Input,Button} from "./myStyle"
 import hdImage from "./bg.png";
+import Show from "./Show";
 import './Form.css';
 
+
+// const techCompanies = [
+//   "Apple", "Facebook","Netflix", "Tesla","Amazon","Alphabet"
+// ];
+
+const inputStyle = {
+width: '40%',
+marginLeft: '10%',
+minWidth: '200px', 
+}
 const imgStyle = {
   width: '50%',
-  minWidth: '380px',
+  minWidth: '200px',
   position: 'absolute',
   top: '0%',
   left: '25%'
@@ -33,9 +42,13 @@ const Form = (props) => {
     const { values, handleChange, handleSubmit } = useForm(getData);
     props.setKind(props.newKind)
     props.setZip(props.newZip)
-    function getData(kind) {
-    props.setKind(kind.trim())
-    
+    function getData(values) {
+      props.setKind(values.kind.trim())
+      props.setZip(values.zip)
+      { (props.kind===props.kindp && props.zip===props.zipp && props.vData[0]['name'] !== '') ? props.setNext(props.volNext + 4) : props.setNext(0) }
+      // props.setKindp(props.kind)
+      // props.setZipp(props.zip)
+
 }
     return (
       <div >
@@ -46,61 +59,29 @@ const Form = (props) => {
         <div className="column is-4 is-offset-4">
           <div className="box">
   
-          <form onSubmit={handleSubmit} className='back-img'
+          <form onSubmit={handleSubmit} id='how'
  >
-<Bir  style={(props.kind) ? {"top" : "0%"} : {"top" : "30%"} }>            
+<Bir  style={(props.kind) ? {"top" : "0%"} : {"top" : "0%"} }>            
 <div className="field">
           <label style={(props.kind) ? labelStyle2 : labelStyle1 } className="label" >What kind of Non-Profit are You Looking For?</label>
                 <div className="control">
-                <Input placeholder='What are you looking for?' style={{"marginLeft" : "10%"}} className="input" size='100' type="text" name="kind" onChange={handleChange} value={values.kind} required />
+                <Input list="cityname" placeholder='What are you looking for?' style={{"marginLeft" : "10%"}} className="input" size='100' type="text" name="kind" onChange={handleChange} value={values.kind} required />
+                {/* <Select options={ techCompanies } /> */}
+
                 </div>
               </div>
               <div className="field">
           <label style={(props.kind) ? labelStyle2 : labelStyle1 } className="label" >Zip Code</label>
                 <div className="control">
-                <Input placeholder='Enter zip code' style={{"marginLeft" : "10%"}} className="input" size='5' type="text" name="zip" onChange={handleChange} value={values.zip} required />
+                <Input style={inputStyle} placeholder='Enter zip code' className="input" size='5' type="number" min='20588' max='21930' name="zip" onChange={handleChange} value={values.zip} required />
+                {/* <Select options={ techCompanies } /> */}
                 </div>
               </div>
               <Button style={(props.kind) ? buttonStyle2 : buttonStyle1 } type="submit" className="button is-block is-info is-fullwidth">{(props.kind) ? 'New Search' : 'Find Non-Profit'}</Button>
-</Bir>
 
+</Bir>
+<Show kind={props.kind} kindp={props.kindp} setKindp={props.setKindp} zip={props.zip} setZip={props.setZip} zipp={props.zipp} setZipp={props.setZipp} vData={props.vData} volNext={props.volNext} setNext={props.setNext} ></Show>
             </form>
-<div className='myClass'>            
- <span className='span1'>
-            <h3>Who We Are</h3>
-<Column>
-            <div>Neque porro quisquam est qui</div>
-            <div>dolorem ipsum quia dolor sit</div>
-            <div> amet, consectetur, adipisci velit</div>
-            <div>Neque porro quisquam est qui</div>
-            <div>dolorem ipsum quia dolor sit</div>
-            <div> amet, consectetur, adipisci velit</div>
-            <div> amet, consectetur, adipisci velit</div>
-            </Column>            
-</span>            
-<span className='span2'>
-             <h3>Contact</h3>
-            <Column>
-            <div>2222 Infinity Loop</div>
-            <div>Blay blah, VA 99999-0000</div>
-            <br></br>
-            <div>contact@blah.com</div>
-            </Column>
-</span>            
-<span className='span3'>
- 
-            <h3>About Us</h3>
-            <Column>
-            <div></div>
-           <button><Link className='movie-card' to={`/form/`} replace>Home</Link></button>
-             <button>About Us</button>
-            <button>Vounteering</button>
-            <button>Safety</button>
-            <button>Partners</button>
-            <button>Login</button>
-            </Column>
-</span> 
-</div>           
           </div>
         </div>
       </div>

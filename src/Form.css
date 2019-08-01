@@ -26,7 +26,34 @@
             top: 70%;
             left: 55%;
             }
-            @media only screen and (max-width: 1600px) {
+            .bottomStyle {
+              text-align: left;
+              margin-top: 12%;
+              margin-left: 150%;
+              width: 50%;
+              background-color: white;
+              color: black;
+              background-color: white;
+              font-size: 20px;
+                border: 2px solid black;
+                border-radius: 5px;
+                width: 600px;
+
+            }
+            .bottomStyle2 {
+              text-align: left;
+              margin-top: 0%;
+              margin-left: 150%;
+              width: 50%;
+              background-color: white;
+              color: black;
+              background-color: white;
+              font-size: 20px;
+                border: 2px solid black;
+                border-radius: 5px;
+                width: 600px;
+}
+          @media only screen and (max-width: 1600px) {
                 .span1 {
                     top: 60%;
                     left: 25%;
@@ -34,13 +61,102 @@
               } 
               @media only screen and (max-width: 1600px) {
                 .span2 {
-                    top: 84%;
+                    top: 92%;
                     left: 25%;
                                 }
               } 
                 @media only screen and (max-width: 800px) {
                 .span3 {
-                    top: 100%;
+                    top: 113%;
                     left: 25%;
                                 }
-              }            
+              } 
+              @media only screen and (max-width: 1600px) {
+                .bottomStyle {
+                margin-left: 10%;
+                                }
+                              }
+                              @media only screen and (max-width: 600px) {
+                                .bottomStyle {
+                                  margin-top: 30%;
+                                width: 300px;
+                                                }
+                                              }
+                                                @media only screen and (max-width: 1600px) {
+                                  .bottomStyle2 {
+                                  margin-left: 10%;
+                                                  }
+                                                }
+                                                @media only screen and (max-width: 600px) {
+                                                  .bottomStyle2 {
+                                                  width: 300px;
+                                                                  }
+                                                                }
+                                                                  @media only screen and (max-width: 1100px) {
+                                                  .span1 {
+                                                      top: 70%;
+                                                      left: 25%;
+                                                                  }
+                                                } 
+                                                @media only screen and (max-width: 600px) {
+                                                  .span1 {
+                                                      top: 113%;
+                                                      left: 25%;
+                                                                    }
+                                                } 
+                                                @media only screen and (max-width: 600px) {
+                                                  .span2 {
+                                                      top: 150%;
+                                                      left: 25%;
+                                                                  }
+                                                } 
+                                                @media only screen and (max-width: 600px) {
+                                                  .span3 {
+                                                      top: 180%;
+                                                      left: 25%;
+                                                                  }
+                                                } 
+              
+                                                .rowStyle1  {
+                                                  color: blue;  
+                                                  width: 600px;
+                                                    }
+                                                    @media only screen and (max-width: 600px) {
+                                                      .rowStyle1 {
+                                                          width: 300px;
+                                                                      }
+                                                    } 
+                                                        
+                                                    .rowStyle2 {
+                                                      width: 600px;  
+                                                        }
+                                                        @media only screen and (max-width: 600px) {
+                                                          .rowStyle2 {
+                                                              width: 300px;
+                                                                          }
+                                                        } 
+                                                        
+                                                        .rowStyle3  {
+                                                          width: 600px;  
+                                                            }
+                                                            @media only screen and (max-width: 600px) {
+                                                              .rowStyle3 {
+                                                                  width: 300px;
+                                                                              }
+                                                            } 
+  
+                                                            .contain  {
+                                                            color: black;
+                                                            background-color: white;
+                                                            font-size: 20px;
+                                                              border: 2px solid black;
+                                                              border-radius: 5px;
+                                                              width: 600px;
+                                                          }
+                                                          @media only screen and (max-width: 600px) {
+                                                            .contain {
+                                                                width: 300px;
+                                                                            }
+                                                          } 
+      
+                                                                    

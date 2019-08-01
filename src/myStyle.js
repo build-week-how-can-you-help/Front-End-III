@@ -90,7 +90,7 @@ export const Ahref = styled.a`
 `;
     export const Bir = styled.div`
     position: absolute;
-    top: 30%;
+    top: 0%;
     font-family: 'Indie Flower';
     font-size: 32px;
     width: 50%;
@@ -101,7 +101,11 @@ export const Ahref = styled.a`
     margin-left: 20%;
     margin-right: 40%;
       `;
-    export const Input = styled.input`
+      export const Input = styled.input`
+      width: 40%;
+      min-width: 200px; 
+    `
+    export const Select = styled.input`
       width: 40%;
       min-width: 200px; 
     `
@@ -140,7 +144,6 @@ export const Pro = styled.div`
         
         `;
         export const Column = styled.div`
-
         display: flex;
         flex-direction: column;
         align-items: flex-start;
