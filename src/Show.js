@@ -50,15 +50,15 @@ import './Form.css';
               
           const rowStyle1 = {
             color: 'dodgerblue',  
-            width: '500px',  
+            width: '300px',  
               }
               
               const rowStyle2 = {
-                width: '500px',  
+                width: '300px',  
                   }
               
                   const rowStyle3 = {
-                    width: '500px',  
+                    width: '300px',  
                       }
                       const contain = {
                       color: 'black',
@@ -66,7 +66,7 @@ import './Form.css';
                       fontSize: '20px',
                         border: '2px solid black',
                         borderRadius: '5px',
-                        width: '500px',
+                        width: '300px',
                     }
                       
                                                     
