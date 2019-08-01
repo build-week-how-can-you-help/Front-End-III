@@ -68,3 +68,22 @@
                                   margin-left: 10%;
                                                   }
                                                 }
+                                                @media only screen and (max-width: 600px) {
+                                                  .span1 {
+                                                      top: 113%;
+                                                      left: 25%;
+                                                                  }
+                                                } 
+                                                @media only screen and (max-width: 600px) {
+                                                  .span2 {
+                                                      top: 150%;
+                                                      left: 25%;
+                                                                  }
+                                                } 
+                                                @media only screen and (max-width: 600px) {
+                                                  .span3 {
+                                                      top: 180%;
+                                                      left: 25%;
+                                                                  }
+                                                } 
+                                  

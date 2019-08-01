@@ -1,62 +1,66 @@
 import React, { useEffect, useState } from "react"
 import axios from 'axios'
 import Form from './Form'
-import {Column} from "./myStyle"
+import useCallData from './useCallData'
 import { Route } from 'react-router-dom';
-import { Link } from 'react-router-dom'
 // import Select from 'react-select';
 
 // import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  const [volData1, setData1] = useState('')
-  const [volData2, setData2] = useState('')
-  const [volData3, setData3] = useState('')
-  const [volData4, setData4] = useState('')
-  const [volData5, setData5] = useState('')
-  const [volData6, setData6] = useState('')
-  const [volData7, setData7] = useState('')
-  const [volData8, setData8] = useState('')
-  const [volData9, setData9] = useState('')
+  // const [volData1, setData1] = useState('')
+  // const [volData2, setData2] = useState('')
+  // const [volData3, setData3] = useState('')
+  // const [volData4, setData4] = useState('')
+  // const [volData5, setData5] = useState('')
+  // const [volData6, setData6] = useState('')
+  // const [volData7, setData7] = useState('')
+  // const [volData8, setData8] = useState('')
+  // const [volData9, setData9] = useState('')
 
   const [volData, setData] = useState('')
   const [volNext, setNext] = useState(0)
 
   const [kind, setKind] = useState('')
   const [zip, setZip] = useState('')
-  const ul = {
-    display: 'none',
-    float: 'left', 
-  }
+  const [kindp, setKindp] = useState('')
+  const [zipp, setZipp] = useState('')
+  useCallData(setData)
+  // const ul = {
+  //   display: 'none',
+  //   float: 'left', 
+  // }
   
-  function g(page) {
-    return axios.get('https://swapi.co/api/people/?page=' + page)
-  }
+  // function g(page) {
+  //   return axios.get('https://swapi.co/api/people/?page=' + page)
+  // }
   
-  useEffect(() => {
-    axios.all([g(1), g(2), g(3), g(4), g(5), g(6), g(7), g(8), g(9)])
-      .then(axios.spread(function (data1,data2,data3,data4,data5,data6,data7,data8,data9)
-      {
-        setData1(data1.data.results) 
-        setData2(data2.data.results) 
-        setData3(data3.data.results) 
-        setData4(data4.data.results) 
-        setData5(data5.data.results) 
-        setData6(data6.data.results) 
-        setData7(data7.data.results) 
-        setData8(data8.data.results) 
-        setData9(data9.data.results) 
-        setData(data1.data.results) 
-        console.log('vol data is', volData1)
-     }
-  ))
-    .catch (data => { 
-      console.log('data error 1',data)
-            }
-             )
-            }, []);
-            console.log('vol data1 is', volData1)
+  // useEffect(() => {
+    // axios.all([g(1), g(2), g(3), g(4), g(5), g(6), g(7), g(8), g(9)])
+    // axios.all([g(1)])
+      // .then(axios.spread(function (data1,data2,data3,data4,data5,data6,data7,data8,data9)
+      // .then(axios.spread(function (data1)
+      // {
+        // setData1(data1.data.results) 
+        // setData2(data2.data.results) 
+        // setData3(data3.data.results) 
+        // setData4(data4.data.results) 
+        // setData5(data5.data.results) 
+        // setData6(data6.data.results) 
+        // setData7(data7.data.results) 
+        // setData8(data8.data.results) 
+        // setData9(data9.data.results) 
+        // setData(data1.data.results) 
+          // console.log('vol data is', volData1)
+  //    }
+  // ))
+  //   .catch (data => { 
+  //     console.log('data error 1',data)
+  //           }
+  //            )
+  //           }, []);
+            console.log('vol data1 is', volData)
             let vData1 = [{name: '', zip: '', contact: '', info: ''}]
             let vData = [{name: '', zip: '', contact: '', info: ''}]
 
@@ -68,28 +72,29 @@ for (let i=0;i<volData.length;i++)
 
 console.log('vdata is',vData)
 
-            let darr = [volData1,volData2,volData3,volData4,volData5,volData6,volData7,volData8,volData9]
-            let data=[];
-            let n=0
+//             let darr = [volData1,volData2,volData3,volData4,volData5,volData6,volData7,volData8,volData9]
+//             let data=[];
+//             let n=0
 
-            for (let j=0;j<darr.length;j++)            
-{
-  for (let i=0;i<darr[j].length;i++)
-{
-  data[n] = ((n + 3) / 3 ) + ' ' + darr[j][i].name;
-  n=n+1
-  data[n] = darr[j][i].birth_year;
-  n=n+1
-  data[n] = darr[j][i].url;
-  n=n+1
-}
-}
-console.log('data length is',data.length)
+//             for (let j=0;j<darr.length;j++)            
+// {
+//   for (let i=0;i<darr[j].length;i++)
+// {
+//   data[n] = ((n + 3) / 3 ) + ' ' + darr[j][i].name;
+//   n=n+1
+//   data[n] = darr[j][i].birth_year;
+//   n=n+1
+//   data[n] = darr[j][i].url;
+//   n=n+1
+// }
+// }
+// console.log('data length is',data.length)
     return (
+
     <div className="App">
             <Route
   path='/form'
-  render={(props) => <Form {...props}  kind={kind} setKind={setKind} zip={zip} setZip={setZip} newKind='' newZip='' vData={vData} volNext={volNext} setNext={setNext} isAuthed={true} />}
+  render={(props) => <Form /*{...props} */ kind={kind} setKind={setKind} zip={zip} setZip={setZip} kindp={kindp} setKindp={setKindp} zipp={zipp} setZipp={setZipp} newKind='' newZip='' vData={vData} volNext={volNext} setNext={setNext} isAuthed={true} />}
 />
 
       <header className="App-header">
@@ -107,7 +112,7 @@ console.log('data length is',data.length)
         </a> */}
       </header>
       <div className="App-header">
-    <Form kind={kind} setKind={setKind} zip={zip} setZip={setZip} newKind={kind} newZip={zip} vData={vData1} volNext={volNext} setNext={setNext} />
+    <Form kind={kind} setKind={setKind} zip={zip} setZip={setZip} kindp={kindp} setKindp={setKindp} zipp={zipp} setZipp={setZipp} newKind={kind} newZip={zip} vData={vData1} volNext={volNext} setNext={setNext} />
 
   </div>
     </div>

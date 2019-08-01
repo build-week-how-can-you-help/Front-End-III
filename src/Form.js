@@ -15,7 +15,6 @@ width: '40%',
 marginLeft: '10%',
 minWidth: '200px', 
 }
-
 const imgStyle = {
   width: '50%',
   minWidth: '200px',
@@ -43,9 +42,13 @@ const Form = (props) => {
     const { values, handleChange, handleSubmit } = useForm(getData);
     props.setKind(props.newKind)
     props.setZip(props.newZip)
-    function getData(kind) {
-    props.setKind(kind.trim())
-    
+    function getData(values) {
+      props.setKind(values.kind.trim())
+      props.setZip(values.zip)
+      { (props.kind===props.kindp && props.zip===props.zipp && props.vData[0]['name'] !== '') ? props.setNext(props.volNext + 4) : props.setNext(0) }
+      // props.setKindp(props.kind)
+      // props.setZipp(props.zip)
+
 }
     return (
       <div >
@@ -70,14 +73,14 @@ const Form = (props) => {
               <div className="field">
           <label style={(props.kind) ? labelStyle2 : labelStyle1 } className="label" >Zip Code</label>
                 <div className="control">
-                <Input style={inputStyle} placeholder='Enter zip code' style={{"marginLeft" : "10%"}} className="input" size='5' type="number" min='20588' max='21930' name="zip" onChange={handleChange} value={values.zip} required />
+                <Input style={inputStyle} placeholder='Enter zip code' className="input" size='5' type="number" min='20588' max='21930' name="zip" onChange={handleChange} value={values.zip} required />
                 {/* <Select options={ techCompanies } /> */}
                 </div>
               </div>
               <Button style={(props.kind) ? buttonStyle2 : buttonStyle1 } type="submit" className="button is-block is-info is-fullwidth">{(props.kind) ? 'New Search' : 'Find Non-Profit'}</Button>
 
 </Bir>
-<Show kind={props.kind} vData={props.vData} volNext={props.volNext} setNext={props.setNext} ></Show>
+<Show kind={props.kind} kindp={props.kindp} setKindp={props.setKindp} zip={props.zip} setZip={props.setZip} zipp={props.zipp} setZipp={props.setZipp} vData={props.vData} volNext={props.volNext} setNext={props.setNext} ></Show>
             </form>
           </div>
         </div>

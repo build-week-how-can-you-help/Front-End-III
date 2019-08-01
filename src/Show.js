@@ -1,55 +1,52 @@
 import React from 'react';
-import useForm from "./useForm";
 import { Link } from 'react-router-dom'
-import Select from 'react-select';
-import {Column,GridView,Bir,Input,Button} from "./myStyle"
-import hdImage from "./bg.png";
+import {Column} from "./myStyle"
 import './Form.css';
 
 
-const inputStyle = {
-width: '40%',
-marginLeft: '10%',
-minWidth: '200px', 
-}
+// const inputStyle = {
+// width: '40%',
+// marginLeft: '10%',
+// minWidth: '200px', 
+// }
 
-const imgStyle = {
-  width: '50%',
-  minWidth: '200px',
-  position: 'absolute',
-  top: '0%',
-  left: '25%'
-}
-const labelStyle1 = {
-  marginLeft: '10%',
-}
-const labelStyle2 = {
-  display: 'none'
-}
-const buttonStyle1 = {
-  position: 'relative'
-}
+// const imgStyle = {
+//   width: '50%',
+//   minWidth: '200px',
+//   position: 'absolute',
+//   top: '0%',
+//   left: '25%'
+// }
+// const labelStyle1 = {
+//   marginLeft: '10%',
+// }
+// const labelStyle2 = {
+//   display: 'none'
+// }
+// const buttonStyle1 = {
+//   position: 'relative'
+// }
 
-const buttonStyle2 = {
-    position: 'absolute',
-    top: '0%',
-    left: '95%'
+// const buttonStyle2 = {
+//     position: 'absolute',
+//     top: '0%',
+//     left: '95%'
   
-  }
-  const bottomStyle = {
-    textAlign: 'left',
-    marginTop: '40%',
-    marginLeft: '150%',
-    width: '50%',
-    backgroundColor: 'white'
-  }
-      const bottomStyle2 = {
-        textAlign: 'left',
-        marginTop: '10%',
-        marginLeft: '250%',
-        width: '50%',
-        backgroundColor: 'white'
-          }
+//   }
+//   const bottomStyle = {
+//     textAlign: 'left',
+//     marginTop: '40%',
+//     marginLeft: '150%',
+//     width: '50%',
+//     backgroundColor: 'white'
+//   }
+//       const bottomStyle2 = {
+//         textAlign: 'left',
+//         marginTop: '10%',
+//         marginLeft: '250%',
+//         width: '50%',
+//         backgroundColor: 'white'
+//           }
               
           const rowStyle1 = {
             color: 'dodgerblue',  
@@ -74,10 +71,16 @@ const buttonStyle2 = {
                       
                                                     
 const Show = (props) => {
-if (props.kind==='')
-{props.setNext(0)}
+
+const resultArr = []
+
+for (let i=0;i<props.vData.length;i++)
+// if ( 1===1 || (props.kind && props.vData[i]['name'] && props.vData[i].name.toLowerCase().includes(props.kind.toLowerCase()) && props.vData[i].contact.includes(props.zip))) 
+if (props.kind && props.vData[0]) 
+{ resultArr.push(props.vData[i])}
+
     const myFunction = function (element,ix,arr) {
-        if (ix<(props.volNext+4) && props.kind && arr[ix]['name'] && ( 1===1 || element.name.toLowerCase().includes(props.kind.toLowerCase()) || element.contact.includes(props.zip) ) )
+        if (resultArr[0] &&  ix<(props.volNext+4) && ix>(props.volNext-1) )
       {  return (
 <div>
 <Column style={contain} className={ix===0 ? 'bottomStyle' : 'bottomStyle2'} >
@@ -87,11 +90,14 @@ if (props.kind==='')
         </Column>
 </div>
        ) }
-      }
-      
+
+      } 
+
     return (
         <div>
-        {props.vData.map(myFunction)}
+        { ( props.vData[0]['name']) !== '' && resultArr.map(myFunction)}
+        {/* { ( props.kind !== '' && props.vData[0]['name'] === '' ) && <div>No Results {props.vData.length} {props.kind} {props.vData[0]['name']} {props.volNext}</div>} */}
+
 
 <div className='myClass'>            
  <span className='span1'>
