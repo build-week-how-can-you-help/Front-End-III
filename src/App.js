@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react"
 import axios from 'axios'
 import Form from './Form'
+import Form2 from './Form2'
+// import voldata from './volData.txt'
 import useCallData from './useCallData'
 import { Route } from 'react-router-dom';
 // import Select from 'react-select';
@@ -26,7 +28,7 @@ function App() {
   const [zip, setZip] = useState('')
   const [kindp, setKindp] = useState('')
   const [zipp, setZipp] = useState('')
-  useCallData(setData)
+  // useCallData(setData,volData)
   // const ul = {
   //   display: 'none',
   //   float: 'left', 
@@ -35,7 +37,8 @@ function App() {
   // function g(page) {
   //   return axios.get('https://swapi.co/api/people/?page=' + page)
   // }
-  
+  //     fetch('https://api.nasa.gov/neo/rest/v1/feed?start_date=2015-09-07&end_date=2015-09-08&api_key=DEMO_KEY').then(response => response.json()).then(data1 => { console.log(data1)
+
   // useEffect(() => {
     // axios.all([g(1), g(2), g(3), g(4), g(5), g(6), g(7), g(8), g(9)])
     // axios.all([g(1)])
@@ -63,14 +66,75 @@ function App() {
             console.log('vol data1 is', volData)
             let vData1 = [{name: '', zip: '', contact: '', info: ''}]
             let vData = [{name: '', zip: '', contact: '', info: ''}]
+            let voldata = []
+vData[0]=              {
+                "name": "Feed the Children, Inc.",
+                "description": "One of America's most effective charities providing food, clothing, medical care, education, and emergency relief to children in the United States and overseas since 1979.",
+                "website": "http://www.feedthechildren.org",
+                "address": "333 N. Meridian Ave",
+                "city": "Oklahoma City",
+                "zip code": "21202"
+              }
+              
+               
+              vData[1]={
+                "name": "Rude Ranch Animal Rescue",
+                "description": "A no-kill organization dedicated to providing refuge to abandoned, abused and homeless dogs and cats until they are placed in permanent homes.",
+                "website": "http://www.ruderanch.org",
+                "address": "3200 Ivy Way",
+                "city": "Harwood",
+                "zip code": "21202"
+              }
+              
+    
 
+              vData[2]=          {
+                "name": "Maryland Zoo in Baltimore (The)",
+                "description": "Educational programs and naturalistic exhibits provide visitors with educational recreation activities and further understanding of the urgent need to conserve and protect wildlife and wetlands.",
+                "website": "http://www.marylandzoo.org",
+                "address": "1876 Mansion House Drive, Druid Hill Park",
+                "city": "Baltimore",
+                "zip code": "21202"
+              }
+              
+            
 
-for (let i=0;i<volData.length;i++)
+              vData[3]=  {
+                "name": "Christopher Reeve Foundation",
+                "description": "The Reeve Foundation is dedicated to curing spinal cord injury by funding innovative research and improving the quality of life for people living with paralysis.",
+                "website": "http://www.christopherreeve.org",
+                "address": "636 Morris Turnpike, Suite 3A",
+                "city": "Short Hills",
+                "zip code": "21202"
+              }
+              
+
+              vData[4]=  {
+                "name": "Institute of Notre Dame",
+                "description": "A college-preparatory school for young women, rooted in the values of the Catholic faith and the educational vision of the School Sisters.",
+                "website": "http://www.indofind.org",
+                "address": "901 Aisquith Street",
+                "city": "Baltimore",
+                "zip code": "21202"
+              }
+          
+            // setData(JSON.voldata)
+            console.log('vData is',vData)
+            console.log('vData  zero is',vData["0"])
+            console.log('vData  zero  address is',vData[0]['address'])
+ voldata = vData
+            // for (let i=0;i<volData.length;i++)
+            for (let i=0;i<5;i++)
 {
-  vData[i] = {name: volData[i]['name'], zip: volData[i]['birth_year'], contact: volData[i]['hair_color'], info: volData[i]['eye_color']}
+  console.log('vData  is is',vData[i])
+  console.log('vData  name  is',vData[i]['name'])
+  console.log('vData  address is',vData[i]['address'])
+
+  // vData[i] = {name: volData[i]['name'], zip: volData[i]['zip code'], contact: volData[i]['address'] + ' ' + volData[i]['city'] + ' ' + volData[i]['zip code'], info: volData[i]['description']}
+  // vData[i] = {name: voldata['"' + i + '"']['name'], zip: voldata['"' + i + '"']['zip code'], contact: voldata['"' + i + '"']['address'] + ' ' + voldata['"' + i + '"']['city'] + ' ' + voldata['"' + i + '"']['zip code'], info: voldata['"' + i + '"']['description']}
 }
 
-console.log('vdata is',vData)
+console.log(' now vdata is',vData)
 
 //             let darr = [volData1,volData2,volData3,volData4,volData5,volData6,volData7,volData8,volData9]
 //             let data=[];
@@ -94,7 +158,7 @@ console.log('vdata is',vData)
     <div className="App">
             <Route
   path='/form'
-  render={(props) => <Form /*{...props} */ kind={kind} setKind={setKind} zip={zip} setZip={setZip} kindp={kindp} setKindp={setKindp} zipp={zipp} setZipp={setZipp} newKind='' newZip='' vData={vData} volNext={volNext} setNext={setNext} isAuthed={true} />}
+  render={(props) => <Form2 /*{...props} */ kind={kind} setKind={setKind} zip={zip} setZip={setZip} kindp={kindp} setKindp={setKindp} zipp={zipp} setZipp={setZipp} newKind='' newZip='' vData={vData} volNext={volNext} setNext={setNext} isAuthed={true} />}
 />
 
       <header className="App-header">
@@ -112,7 +176,7 @@ console.log('vdata is',vData)
         </a> */}
       </header>
       <div className="App-header">
-    <Form kind={kind} setKind={setKind} zip={zip} setZip={setZip} kindp={kindp} setKindp={setKindp} zipp={zipp} setZipp={setZipp} newKind={kind} newZip={zip} vData={vData1} volNext={volNext} setNext={setNext} />
+    <Form kind={kind} setKind={setKind} zip={zip} setZip={setZip} kindp={kindp} setKindp={setKindp} zipp={zipp} setZipp={setZipp} newKind={kind} newZip={zip} vData={vData} volNext={volNext} setNext={setNext} />
 
   </div>
     </div>

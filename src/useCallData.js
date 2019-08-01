@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import axios from 'axios'
 
-function useCallData(setData) {
+function useCallData(setData,volData) {
   // const [volData1, setData1] = useState('')
   // const [volData2, setData2] = useState('')
   // const [volData3, setData3] = useState('')
@@ -22,18 +22,34 @@ function useCallData(setData) {
   // const ul = {
   //   display: 'none',
   //   float: 'left', 
-  // }
-  
+  // }  
+  // https://api.nasa.gov/neo/rest/v1/feed?start_date=2015-09-07&end_date=2015-09-08&api_key=DEMO_KEY
   function g(page) {
-    return axios.get('https://swapi.co/api/people/?page=' + page)
+    // return axios.get('https://swapi.co/api/people/?page=' + page)
+    // return axios.get('https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=DEMO_KEY')
+    // "http://localhost:3001/user/5b21a5d7588b40be612798d4"
+    return axios.get('file:///Users/scottrenz/Documents/GitHub/Front-End-III/src/volData.txt')
   }
+  let counter = 0
+const [locaList,setLoca] = useState({results: []})
+const [times, setTimes] = React.useState(0);
+
   
   useEffect(() => {
+    
     // axios.all([g(1), g(2), g(3), g(4), g(5), g(6), g(7), g(8), g(9)])
-    axios.all([g(1)])
+    axios.all([g(2)])
       // .then(axios.spread(function (data1,data2,data3,data4,data5,data6,data7,data8,data9)
       .then(axios.spread(function (data1)
+      
       {
+        // console.log('a data is',data1.data['near_earth_objects'])
+        console.log('a data is',data1)
+        setData(
+          setData(data1.data['near_earth_objects']) );
+          if (times % 1 === 0) {
+            setTimes(counter + 1);
+          }
         // setData1(data1.data.results) 
         // setData2(data2.data.results) 
         // setData3(data3.data.results) 
@@ -43,8 +59,8 @@ function useCallData(setData) {
         // setData7(data7.data.results) 
         // setData8(data8.data.results) 
         // setData9(data9.data.results) 
-    if ( data1.data.results.name !== '')
-{       setData(data1.data.results) }
+    // if ( data1.data.results.name !== '' || 1 )
+// {       setData(data1.data.results) }
           // console.log('vol data is', volData1)
      }
   ))
@@ -52,7 +68,7 @@ function useCallData(setData) {
       console.log('data error 1',data)
             }
              )
-            }, []);
+            }, [times,counter]);
 
 }
 

@@ -50,15 +50,15 @@ import './Form.css';
               
           const rowStyle1 = {
             color: 'dodgerblue',  
-            width: '300px',  
+            width: '600px',  
               }
               
               const rowStyle2 = {
-                width: '300px',  
+                width: '600px',  
                   }
               
                   const rowStyle3 = {
-                    width: '300px',  
+                    width: '600px',  
                       }
                       const contain = {
                       color: 'black',
@@ -66,7 +66,7 @@ import './Form.css';
                       fontSize: '20px',
                         border: '2px solid black',
                         borderRadius: '5px',
-                        width: '300px',
+                        width: '600px',
                     }
                       
                                                     
@@ -75,18 +75,17 @@ const Show = (props) => {
 const resultArr = []
 
 for (let i=0;i<props.vData.length;i++)
-// if ( 1===1 || (props.kind && props.vData[i]['name'] && props.vData[i].name.toLowerCase().includes(props.kind.toLowerCase()) && props.vData[i].contact.includes(props.zip))) 
-if (props.kind && props.vData[0]) 
+{if ( ( props.kind  && props.vData[i]['description'] && props.vData[i]['description'].toLowerCase().includes(props.kind.toLowerCase()) && props.vData[i]['zip code'].includes(props.zip))) 
 { resultArr.push(props.vData[i])}
-
+}
     const myFunction = function (element,ix,arr) {
-        if (resultArr[0] &&  ix<(props.volNext+4) && ix>(props.volNext-1) )
+        if (resultArr[ix] &&  ix<(4) )
       {  return (
 <div>
-<Column style={contain} className={ix===0 ? 'bottomStyle' : 'bottomStyle2'} >
-        <div style={rowStyle1}> {arr[ix]['name']}</div>
-        <div style={rowStyle2}>{arr[ix]['contact']}</div>
-        <div style={rowStyle3}> {arr[ix]['info']} {arr[ix]['info']==='' ? '' : 'Neque porro quisquam est quiNeque porro quisquam est quiNeque porro quisquam est quiNeque porro quisquam est qui'}</div>
+<Column className={ix===0 ? 'bottomStyle' : 'bottomStyle2'} >
+        <div className={rowStyle1}> {arr[ix]['name']}</div>
+        <div className={rowStyle2}>{arr[ix]['address']}</div>
+        <div className={rowStyle3}> {arr[ix]['description']}</div>
         </Column>
 </div>
        ) }
@@ -95,8 +94,10 @@ if (props.kind && props.vData[0])
 
     return (
         <div>
-        { ( props.vData[0]['name']) !== '' && resultArr.map(myFunction)}
+        {/* { ( props.vData[0]['name']) !== '' && resultArr.map(myFunction)} */}
+        { resultArr.map(myFunction)}
         {/* { ( props.kind !== '' && props.vData[0]['name'] === '' ) && <div>No Results {props.vData.length} {props.kind} {props.vData[0]['name']} {props.volNext}</div>} */}
+        { ( !resultArr ) && <div>No Results {props.vData.length} {props.kind} {props.vData[0]['name']} {props.volNext}</div>}
 
 
 <div className='myClass'>            
