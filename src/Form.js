@@ -3,9 +3,6 @@ import useForm from "./useForm";
 import {GridView,Bir,Input,Button} from "./myStyle"
 import hdImage from "./bg.png";
 import Show from "./Show";
-import useFind from "./useFind"
-import  { useEffect, useState } from "react"
-import axios from 'axios'
 import usePost from './usePost';
 import './Form.css';
 
@@ -60,14 +57,14 @@ const Form = (props) => {
 <div className="field">
           <label style={(props.vData) ? labelStyle2 : labelStyle1 } className="label" >What kind of Non-Profit are You Looking For?</label>
                 <div className="control">
-                <Input placeholder='What are you looking for?' style={{"marginLeft" : "10%"}} className="input" size='100' type="text" name="kind" onChange={handleChange} value={values.kind} required />
-
+                <Input placeholder='What are you looking for?' style={{"marginLeft" : "10%"}} className="input" size='100' type="text" name="kind" onChange={handleChange} value={values.kind ? values.kind : ' '} required />
+S
                 </div>
               </div>
               <div className="field">
           <label style={(props.vData) ? labelStyle2 : labelStyle1 } className="label" >Zip Code</label>
                 <div className="control">
-                <Input style={inputStyle} placeholder='Enter zip code' className="input" size='5' type="number" min='20588' max='21930' name="zip" onChange={handleChange} value={values.zip} required />
+                <Input style={inputStyle} placeholder='Enter zip code' className="input" size='5' type="number" min='20588' max='21930' name="zip" onChange={handleChange} value={values.zip ? values.zip : '2'} required />
                 </div>
               </div>
            {/* <button><Link to={`/form/`} replace>Home</Link></button> */}

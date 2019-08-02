@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import {Column} from "./myStyle"
-import useFind from "./useFind"
 import './Form.css'
                                                     
 const Show = (props) => {
@@ -14,7 +13,6 @@ const resultArr = []
 
 if(props.vData)
 {
-  console.log(props)
 for (let i=1;i<5;i++)
 {if ( ( 1 || (props.kind  && props.vData[i]['description'] && props.vData[i]['description'].toLowerCase().includes(props.kind.toLowerCase()) && props.vData[i]['zip code'].includes(props.zip))) )
 { resultArr.push(props.vData[i])}
@@ -23,11 +21,11 @@ for (let i=1;i<5;i++)
     const myFunction = function (element,ix,arr) {
         if (resultArr[ix] &&  ix<(4) )
       {  return (
-<div>
-<Column className={ix===0 ? 'bottomStyle' : 'bottomStyle2'} >
-        <div className='rowStyle1'> {arr[ix]['name']}</div>
-        <div className='rowStyle2'>{arr[ix]['address']} {arr[ix]['city']} {arr[ix]['zip code']} </div>
-        <div className='rowStyle3'> {arr[ix]['description']}</div>
+<div  key={arr[ix]['name']}>
+<Column key={arr[ix]['name']+arr[ix]['address']} className={ix===0 ? 'bottomStyle' : 'bottomStyle2'} >
+        <div  key={arr[ix]['name']}  className='rowStyle1'> {arr[ix]['name']}</div>
+        <div  key={arr[ix]['address']} className='rowStyle2'>{arr[ix]['address']} {arr[ix]['city']} {arr[ix]['zip code']} </div>
+        <div  key={arr[ix]['name']+arr[ix]['name']} className='rowStyle3'> {arr[ix]['description']}</div>
         </Column>
 </div>
        ) }

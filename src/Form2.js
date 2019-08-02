@@ -2,7 +2,6 @@ import React from 'react';
 import Form4 from "./Form4";
 
 const Form2 = (props) => {
-    props.setForm('1')
 
     return (
       <div className="App-header">
