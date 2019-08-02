@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react"
+import  { useEffect, useState } from "react"
 import axios from 'axios'
 
- function useFind(setNonProfits,userQuery) {
+ function useFind(setNonProfits,userQuery,myTest) {
 
   
 useEffect(() => {
@@ -20,7 +20,7 @@ useEffect(() => {
      for (let key in res.data) {
          arrayified.push(res.data[key]);
      }
-     console.log(`Response for the query '${userQuery}' was:`, arrayified);
+     console.log(`Response for the query '${userQuery} {myTest}' was:`, arrayified);
 
      setNonProfits(arrayified);
    })

@@ -2,103 +2,40 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import {Column} from "./myStyle"
 import useFind from "./useFind"
-import './Form.css';
-
-
-// const inputStyle = {
-// width: '40%',
-// marginLeft: '10%',
-// minWidth: '200px', 
-// }
-
-// const imgStyle = {
-//   width: '50%',
-//   minWidth: '200px',
-//   position: 'absolute',
-//   top: '0%',
-//   left: '25%'
-// }
-// const labelStyle1 = {
-//   marginLeft: '10%',
-// }
-// const labelStyle2 = {
-//   display: 'none'
-// }
-// const buttonStyle1 = {
-//   position: 'relative'
-// }
-
-// const buttonStyle2 = {
-//     position: 'absolute',
-//     top: '0%',
-//     left: '95%'
-  
-//   }
-//   const bottomStyle = {
-//     textAlign: 'left',
-//     marginTop: '40%',
-//     marginLeft: '150%',
-//     width: '50%',
-//     backgroundColor: 'white'
-//   }
-//       const bottomStyle2 = {
-//         textAlign: 'left',
-//         marginTop: '10%',
-//         marginLeft: '250%',
-//         width: '50%',
-//         backgroundColor: 'white'
-//           }
-              
-          const rowStyle1 = {
-            color: 'dodgerblue',  
-            width: '600px',  
-              }
-              
-              const rowStyle2 = {
-                width: '600px',  
-                  }
-              
-                  const rowStyle3 = {
-                    width: '600px',  
-                      }
-                      const contain = {
-                      color: 'black',
-                      backgroundColor: 'white',
-                      fontSize: '20px',
-                        border: '2px solid black',
-                        borderRadius: '5px',
-                        width: '600px',
-                    }
-                      
+import './Form.css'
                                                     
 const Show = (props) => {
 
 const resultArr = []
-useFind(props.setData,props.kind)
+// useFind(props.setData,props.kind,'myTest')
+  function refreshPage() {
+    window.location.reload(false);
+  }
 
-for (let i=0;i<props.vData.length;i++)
-{if ( ( props.kind  && props.vData[i]['description'] && props.vData[i]['description'].toLowerCase().includes(props.kind.toLowerCase()) && props.vData[i]['zip code'].includes(props.zip))) 
+if(props.vData)
+{
+  console.log(props)
+for (let i=1;i<5;i++)
+{if ( ( 1 || (props.kind  && props.vData[i]['description'] && props.vData[i]['description'].toLowerCase().includes(props.kind.toLowerCase()) && props.vData[i]['zip code'].includes(props.zip))) )
 { resultArr.push(props.vData[i])}
+}
 }
     const myFunction = function (element,ix,arr) {
         if (resultArr[ix] &&  ix<(4) )
       {  return (
 <div>
 <Column className={ix===0 ? 'bottomStyle' : 'bottomStyle2'} >
-        <div style={{color: 'dodgerblue'}} className={rowStyle1}> {arr[ix]['name']}</div>
-        <div className={rowStyle2}>{arr[ix]['address']}</div>
-        <div className={rowStyle3}> {arr[ix]['description']}</div>
+        <div className='rowStyle1'> {arr[ix]['name']}</div>
+        <div className='rowStyle2'>{arr[ix]['address']} {arr[ix]['city']} {arr[ix]['zip code']} </div>
+        <div className='rowStyle3'> {arr[ix]['description']}</div>
         </Column>
 </div>
        ) }
-
       } 
 
     return (
         <div>
-        {/* { ( props.vData[0]['name']) !== '' && resultArr.map(myFunction)} */}
         { resultArr.map(myFunction)}
-        {/* { ( props.kind !== '' && props.vData[0]['name'] === '' ) && <div>No Results {props.vData.length} {props.kind} {props.vData[0]['name']} {props.volNext}</div>} */}
         { ( !resultArr ) && <div>No Results {props.vData.length} {props.kind} {props.vData[0]['name']} {props.volNext}</div>}
 
 
@@ -129,8 +66,9 @@ for (let i=0;i<props.vData.length;i++)
             <h3>About Us</h3>
             <Column>
             <div></div>
-           <button><Link className='movie-card' to={`/form/`} replace>Home</Link></button>
-             <button>About Us</button>
+           <button><Link to={`/form/`} onClick={refreshPage}  >Begin</Link></button>
+           <button>Home</button>
+           <button>About Us</button>
             <button>Vounteering</button>
             <button>Safety</button>
             <button>Partners</button>
@@ -138,7 +76,6 @@ for (let i=0;i<props.vData.length;i++)
             </Column>
 </span> 
 </div>           
-
         </div>
   );
 };
