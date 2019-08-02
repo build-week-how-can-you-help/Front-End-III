@@ -75,7 +75,6 @@ const Form = (props) => {
            {/* <Button style={(props.kind) ? buttonStyle2 : buttonStyle1 } type="submit" className="button is-block is-info is-fullwidth">{(props.kind) ? 'New Search' : 'Find Non-Profit'}</Button> */}
 
 </Bir>
-<Show setForm={props.setForm} kind={props.kind} zip={props.zip} setZip={props.setZip} vData={props.vData} setData={props.setData} ></Show>
             </form>
           </div>
         </div>
