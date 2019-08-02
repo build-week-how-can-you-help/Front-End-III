@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import {Column} from "./myStyle"
+import useFind from "./useFind"
 import './Form.css';
 
 
@@ -73,6 +74,7 @@ import './Form.css';
 const Show = (props) => {
 
 const resultArr = []
+useFind(props.setData,props.kind)
 
 for (let i=0;i<props.vData.length;i++)
 {if ( ( props.kind  && props.vData[i]['description'] && props.vData[i]['description'].toLowerCase().includes(props.kind.toLowerCase()) && props.vData[i]['zip code'].includes(props.zip))) 

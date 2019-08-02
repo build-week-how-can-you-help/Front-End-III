@@ -2,7 +2,7 @@ import React from 'react';
 import useForm from "./useForm";
 import {GridView,Bir,Input,Button} from "./myStyle"
 import hdImage from "./bg.png";
-import Show from "./Show";
+import useFind from "./useFind";
 import './Form.css';
 
 

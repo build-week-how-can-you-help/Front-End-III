@@ -3,7 +3,7 @@ import axios from 'axios'
 import Form from './Form'
 import Form2 from './Form2'
 // import voldata from './volData.txt'
-import useCallData from './useCallData'
+import useFind from './useFind'
 import { Route } from 'react-router-dom';
 // import Select from 'react-select';
 
@@ -28,7 +28,7 @@ function App() {
   const [zip, setZip] = useState('')
   const [kindp, setKindp] = useState('')
   const [zipp, setZipp] = useState('')
-  // useCallData(setData,volData)
+  useFind(setData,kind)
   // const ul = {
   //   display: 'none',
   //   float: 'left', 
@@ -63,7 +63,7 @@ function App() {
   //           }
   //            )
   //           }, []);
-            console.log('vol data1 is', volData)
+            // console.log('vol data1 is', volData)
             let vData1 = [{name: '', zip: '', contact: '', info: ''}]
             let vData = [{name: '', zip: '', contact: '', info: ''}]
             let voldata = []
@@ -119,22 +119,22 @@ vData[0]=              {
               }
           
             // setData(JSON.voldata)
-            console.log('vData is',vData)
-            console.log('vData  zero is',vData["0"])
-            console.log('vData  zero  address is',vData[0]['address'])
+            // console.log('vData is',vData)
+            // console.log('vData  zero is',vData["0"])
+            // console.log('vData  zero  address is',vData[0]['address'])
  voldata = vData
             // for (let i=0;i<volData.length;i++)
             for (let i=0;i<5;i++)
 {
-  console.log('vData  is is',vData[i])
-  console.log('vData  name  is',vData[i]['name'])
-  console.log('vData  address is',vData[i]['address'])
+  // console.log('vData  is is',vData[i])
+  // console.log('vData  name  is',vData[i]['name'])
+  // console.log('vData  address is',vData[i]['address'])
 
   // vData[i] = {name: volData[i]['name'], zip: volData[i]['zip code'], contact: volData[i]['address'] + ' ' + volData[i]['city'] + ' ' + volData[i]['zip code'], info: volData[i]['description']}
   // vData[i] = {name: voldata['"' + i + '"']['name'], zip: voldata['"' + i + '"']['zip code'], contact: voldata['"' + i + '"']['address'] + ' ' + voldata['"' + i + '"']['city'] + ' ' + voldata['"' + i + '"']['zip code'], info: voldata['"' + i + '"']['description']}
 }
 
-console.log(' now vdata is',vData)
+// console.log(' now vdata is',vData)
 
 //             let darr = [volData1,volData2,volData3,volData4,volData5,volData6,volData7,volData8,volData9]
 //             let data=[];
@@ -152,7 +152,7 @@ console.log(' now vdata is',vData)
 //   n=n+1
 // }
 // }
-// console.log('data length is',data.length)
+// // console.log('data length is',data.length)
     return (
 
     <div className="App">

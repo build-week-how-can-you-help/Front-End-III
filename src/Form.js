@@ -4,6 +4,7 @@ import {GridView,Bir,Input,Button} from "./myStyle"
 import hdImage from "./bg.png";
 import Show from "./Show";
 import './Form.css';
+import useFind from './useFind';
 
 
 // const techCompanies = [
