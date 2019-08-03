@@ -14,7 +14,7 @@ let obj = "description_text=" + kind;
      
       }
     })
-    .then(res => { console.log(res.data)
+    .then(res => {
         setData(res.data)
         setKind('')
     }
