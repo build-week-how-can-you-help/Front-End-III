@@ -39,7 +39,7 @@ const Form = (props) => {
     function useData(values) {
       props.setKind(values.kind.trim())
       props.setZip(values.zip)
-      usePost(values.kind.trim(),props.setData,props.setKind)
+      usePost(props.kind,props.setData)
     }
     
     return (
@@ -66,10 +66,8 @@ const Form = (props) => {
                 <Input style={inputStyle} placeholder='Enter zip code' className="input" size='5' type="number" min='20588' max='21930' name="zip" onChange={handleChange} value={values.zip ? values.zip : '2'} required />
                 </div>
               </div>
-           {/* <button><Link to={`/form/`} replace>Home</Link></button> */}
            <Button style={(props.vData) ? buttonStyle2 : buttonStyle1 } type="submit" className="button is-block is-info is-fullwidth">{(props.vData) ? 'New Search' : 'Find Non-Profit'}</Button>
-           {/* <Button style={(props.kind) ? buttonStyle2 : buttonStyle1 } type="submit" className="button is-block is-info is-fullwidth">{(props.kind) ? 'New Search' : 'Find Non-Profit'}</Button> */}
-
+ 
 </Bir>
             </form>
           </div>

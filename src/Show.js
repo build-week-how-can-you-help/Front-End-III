@@ -6,7 +6,6 @@ import './Form.css'
 const Show = (props) => {
 
 const resultArr = []
-// useFind(props.setData,props.kind,'myTest')
   function refreshPage() {
     window.location.reload(false);
   }
