@@ -1,6 +1,5 @@
 {
-  "dependencies": {
-    "styled-components": "^4.3.2"
+  "homepage": "https://build-week-how-can-you-help.github.io/Front-End-III/",
   "name": "Front-End-III",
   "version": "0.1.0",
   "private": true,
@@ -16,6 +15,8 @@
     "styled-components-media-query": "^1.0.15"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
