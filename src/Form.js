@@ -40,7 +40,7 @@ const Form = (props) => {
     function useData(values) {
       props.setKind(values.kind.trim())
       props.setZip(values.zip)
-      usePost(values.kind.trim(),props.setData,props.setKind)
+      usePost(props.kind,props.setData)
     }
     
     return (
@@ -58,7 +58,7 @@ const Form = (props) => {
           <label style={(props.vData) ? labelStyle2 : labelStyle1 } className="label" >What kind of Non-Profit are You Looking For?</label>
                 <div className="control">
                 <Input placeholder='What are you looking for?' style={{"marginLeft" : "10%"}} className="input" size='100' type="text" name="kind" onChange={handleChange} value={values.kind ? values.kind : ' '} required />
-S
+
                 </div>
               </div>
               <div className="field">

@@ -9,19 +9,19 @@ function App(props) {
   const [vData, setData] = useState('')
   const [kind, setKind] = useState('')
   const [zip, setZip] = useState('')
-  const [formNum, setForm] = useState('')
-    return (
+
+  return (
 
     <div className="App">
             <Route
   path='/form'
-  render={(props) => <Form2 {...props}  formNum={formNum} setForm={setForm} kind={kind} setKind={setKind} zip={zip} setZip={setZip} vData={vData} setData={setData} isAuthed={true} />}
+  render={(props) => <Form2 {...props} kind={kind} setKind={setKind} zip={zip} setZip={setZip} vData={vData} setData={setData} isAuthed={true} />}
 />
 
       <header className="App-header">
       </header>
       <div className="App-header">
-    <Form {...props} formNum={formNum} setForm={setForm} kind={kind} setKind={setKind} zip={zip} setZip={setZip} vData={vData} setData={setData} />
+    <Form {...props} kind={kind} setKind={setKind} zip={zip} setZip={setZip} vData={vData} setData={setData} />
 
   </div>
     </div>
