@@ -1,7 +1,7 @@
 
 import axios from 'axios'
 
-function usePost (kind,setData,setKind) {
+function usePost (kind,setData) {
 let obj = "description_text=" + kind;
  //obj = JSON.stringify(obj)
  
@@ -16,7 +16,6 @@ let obj = "description_text=" + kind;
     })
     .then(res => {
         setData(res.data)
-        setKind('')
     }
     )
     .catch(err =>console.log(err))

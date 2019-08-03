@@ -40,7 +40,7 @@ const Form = (props) => {
     function useData(values) {
       props.setKind(values.kind.trim())
       props.setZip(values.zip)
-      usePost(values.kind.trim(),props.setData,props.setKind)
+      usePost(values.kind.trim(),props.setData)
     }
     
     return (
